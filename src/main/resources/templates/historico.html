@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	
+	<head>
+		<title>Apple</title>
+		<meta charset="utf-8">
+		<link href="webjars/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link th:href="@{/css/cadastro.css}" rel="stylesheet" />
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+		<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+		<script type="text/javascript" src="contato.js"></script>
+	</head>
+<body>
+
+<header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url('../img/madeira.jpg');">
+			<a class="navbar-brand" href="#">
+			    <img src="../img/brasil.jpg" width="50" height="30" class="d-inline-block align-top" alt="">
+			 </a>
+		  <a class="navbar-brand" href="/" style="color: lightgreen">Apple</a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		    <div class="navbar-nav">
+				<a class="nav-item nav-link" href="/produtos/">Produtos</a>
+				<a class="nav-item nav-link" href="/venda/carrinho">Carrinho</a>
+				<a class="nav-item nav-link" href="/venda/historico">Historico</a>
+				<a class="nav-item nav-link" href="/logar">Entrar</a>
+				<a class="nav-item nav-link" href="/venda/logout">Sair</a>
+		    </div>
+		  </div>
+		</nav>
+	</header>
+	
+	<h1>Histórico</h1>
+	
+	
+	<table class="table">
+  		<thead>
+    		<tr>
+		      <th scope="col">Foto</th>
+		      <th scope="col">Produto</th>
+		      <th scope="col">Valor</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+		    <tr th:each="produto : ${produtos}">
+		      <td> <img th:src="@{'/'+${produto.caminhoImagem}}" style="height: 40px"> </td>
+		      <td th:text="${produto.titulo}" ></td>
+		      <td th:text="${produto.preco}" ></td>
+		    </tr>
+  		</tbody>
+	</table>
+</body>
+</html>
